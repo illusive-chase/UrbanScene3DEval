@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.17)
+cmake_minimum_required (VERSION 3.10)
 PROJECT(evaluate_test)
 
 FILE(GLOB SOURCE_FILE *.cpp *.h)

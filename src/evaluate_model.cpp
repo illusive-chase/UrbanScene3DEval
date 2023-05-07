@@ -23,7 +23,7 @@ EvaluateModel::read_gt_model(std::string gt_model_path)
     LOG(INFO) << "Read GT model done. It has " << gt_vertices.size()
               << " points and " << gt_faces.size() << " faces";
     LOG(INFO) << "Sampling points on the mesh according to density "
-                 "1000/m2, result in "
+              << mesh_sampling_density << "/m2, result in "
               << gt_point_set.size() << " points";
     kdtree_gt_points.insert(
       gt_point_set.points().begin(), gt_point_set.points().end()
@@ -46,7 +46,7 @@ EvaluateModel::read_recon_model(std::string recon_model_path)
       recon_face_indexes,
       recon_faces
     );
-    recon_point_set = sample_points_according_density(recon_faces, 1);
+    recon_point_set = sample_points_according_density(recon_faces, mesh_sampling_density);
     LOG(INFO) << "Read Recon model done. It has " << recon_vertices.size()
               << " points and " << recon_faces.size() << " faces";
     LOG(INFO) << "Sampling points on the mesh according to density "
